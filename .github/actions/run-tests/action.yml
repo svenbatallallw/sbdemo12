@@ -1,0 +1,23 @@
+name: "Run Node Tests"
+description: "Installs dependencies and runs tests for Node.js projects"
+
+runs:
+  using: "composite"
+  
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm install
+      shell: bash
+
+    - name: Run tests
+      run: npm test
+      shell: bash
+
+    - name: Print completion message
+      run: echo "Composite action completed successfully!"
+      shell: bash
